@@ -1,3 +1,4 @@
 <?php
-	$connection = mysqli_connect("localhost", "fss17a", "W3bD3vFun!", "fss17a");
+	$cnt = mysqli_connect("localhost", "fssa", "Webdevfun1!", "fssa");
+	$cnt = mysqli_connect("localhost", "fssb", "Webdevfun1!", "fssb");
 ?>

@@ -1,13 +1,10 @@
+<?php ?>
 <!doctype html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/style.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 	<style>
 		*{
 			font-family: sans-serif;
@@ -43,17 +40,17 @@
 <?php require_once "nav.php"; ?>
 <h2>Your profile:</h2>
 
+<?php ?>
 <div class="profilecontainer">
-	<img src="">
+	<img src="<?php ?>">
 	<h3>
 		<span class="left">Name:&nbsp;</span>
-		<span class="right"></span>
+		<span class="right"><?php ?></span>
 	</h3>
 	<h4>
 		<span class="left">Email:&nbsp;</span>
-		<span class="right"></span>
+		<span class="right"><?php ?></span>
 	</h4>
 </div>
-
 </body>
 </html>

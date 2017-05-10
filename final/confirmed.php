@@ -5,12 +5,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/style.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 	<style>
 		*{
 			font-family: sans-serif;
@@ -50,32 +46,31 @@
 <!-- Call the data that is stored in the files that we've created in postprocess.php -->
 <?php
 	// call the user variable stored in our session
-	$user = $_SESSION['user'];
-	$img = $_SESSION['img'];
+	$u = $_SESSION['user'];
+	$i = $_SESSION['img'];
 
 	// call the file 'profile.txt'and treat each line as and item in an array called $profile
-	$profile = file("$user/profile.txt");
+	$p = file("users/$u/profile.txt");
 	
 	// assign the first two lines of profile.txt to two variables, $name and $email
 	// in addition use the trim method to remove any whitespace from these's lines
-	$name = trim($profile[0]);
-	$email = trim($profile[1]);
+	$n = trim($p[0]);
+	$e = trim($p[1]);
 ?>
 <div class="profilecontainer">
 	<!-- Call our PHP variables inside of our HTML-->
 	<!-- Call the variable 'user' To identify which image will be called as the src attribute-->
-	<img src="<?php echo $img ?>">
+	<img src="<?php echo $i ?>">
 	<h3>
 		<span class="left">Name:&nbsp;</span>
 		<!-- Call the 'name' Variable to display in this span-->
-		<span class="right"><?php echo $name ?></span>
+		<span class="right"><?php echo $n ?></span>
 	</h3>
 	<h4>
 		<span class="left">Email:&nbsp;</span>
 		<!-- Call the 'email' variable to display in this span -->
-		<span class="right"><?php echo $email ?></span>
+		<span class="right"><?php echo $e ?></span>
 	</h4>
 </div>
-
 </body>
 </html>

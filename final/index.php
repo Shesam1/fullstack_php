@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PHP CheatSheet</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -136,9 +136,7 @@ echo substr($number, 3, 2);
 echo '<br><hr><br>';
 
 //in mathematical operations, parentheses take precedence
-$pi = "3.1415927"; 
-$radius = 5; 
-echo $pi * ($radius * $radius);
+echo 2 * (5 - 5);
 
 echo '<br><hr><br>';
 

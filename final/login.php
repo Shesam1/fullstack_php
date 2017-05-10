@@ -4,17 +4,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/style.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 	<style>
 		*{
 			font-family: sans-serif;
 		}
-		
 	</style>
 </head>
 <body>
@@ -29,55 +24,54 @@
 </label>
 	<br>
 <label>Password
-	<input type="password" name="pw"  value="" required><br>
+	<input type="password" name="pw" value="" required><br>
 </label>
 <br>
 <input type="submit" name="submit" value="Submit">  
 </form>
 
-
-
 <?php
-		
+
 if(isset($_POST['submit'])){
+
 	if (empty($_POST['email']) || empty($_POST['pw'])) {
-	echo "Username or Password is invalid";
-} else {
-	$email=$_POST['email'];
-	$pw=$_POST['pw'];
+		echo "Username or Password is invalid";
+	} else {
+		$e = $_POST['email'];
+		$p = $_POST['pw'];
 
-	$connection = mysqli_connect("localhost", "root", "root", "phptest");
+		//mamp users connection
+		$cnt = mysqli_connect("localhost", "root", "root", "DBNAME");
+		//xampp users connection
+		//$connection = mysqli_connect("localhost", "root", "", "DBNAME");
 
-	$query = "select * from capture where pw='$pw' AND email='$email'";
+		$qry = "select * from TBNAME where pw='$p' AND email='$e'";
 
-	$loginCheck = mysqli_query($connection, $query);
+		$login = mysqli_query($cnt, $qry);
 
-	$rows = mysqli_num_rows($loginCheck);
+		$row = $login->num_rows;
 
-	echo $rows;
+		echo $row;
 
-	echo "<br>";
+		echo "<hr>";
 
-	if ($rows == 1) {
-		while($row = mysqli_fetch_assoc($loginCheck)) {
-			//echo $row["uid"].'<br>';
-			$_SESSION['uid'] = $row["uid"];
-			//echo $row["time"].'<br>';
-			$_SESSION['time'] = $row["time"];
-			//echo $row["name"].'<br>';
-			$_SESSION['name'] = $row["name"];
-			//echo $row["email"].'<br>';
-			$_SESSION['email'] = $row["email"];
-			//echo $row["pw"].'<br>';
-			$_SESSION['pw'] = $row["pw"];
+		if ($row == 1) {
+			$a = mysqli_fetch_assoc($login);
+			//print_r($a);
+			//echo "<hr>$a['uid']<br>$a['time']<br>$a['name']<br>$a['email']<br>$a['pw']";
+			$_SESSION['uid'] = $a["uid"];
+			$_SESSION['time'] = $a["time"];
+			$_SESSION['name'] = $a["name"];
+			$_SESSION['email'] = $a["email"];
+			$_SESSION['pw'] = $a["pw"];
 			echo "<a href=\"profile.php\">proceed to profile</a>";
+		} else {
+			echo "try again";
 		}
-	} 
-	else {
-		echo "try again";
+		// Closing Connection
+		mysqli_close($cnt);
 	}
-	mysqli_close($connection); // Closing Connection
-}
+
 }
 ?>
 
