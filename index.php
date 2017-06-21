@@ -5,6 +5,12 @@
 <title>Document</title>
 </head>
 <body>
-	<h1>hi</h1>
+
+	<?php
+		$name = "Frank";
+	?>
+
+	<h1>Hi, <?php echo $name; ?></h1>
+
 </body>
 </html>

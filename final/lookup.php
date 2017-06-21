@@ -41,7 +41,7 @@
 <?php require_once "nav.php"; ?>
 	<h2>Lookup</h2>
 	<!-- Upon submission we are going to rerun this file which will execute the php code below -->
-	<form method="post">
+	<form method="get">
 		<label>UserName:<br>
 			<input type="text" name="user" required>
 			<span class="error">*</span>
@@ -70,8 +70,8 @@
 	};
 
 // check if there is a value inside the user form field. if so check if the users directory exist. If it does reassign the default variables with information contained within the user folder. I.e. The image source the users name user email. Else run the function to reassign the variables to their default value.
-	if(isset($_POST['user'])) {
-		$u = $_POST['user'];
+	if(isset($_GET['user'])) {
+		$u = $_GET['user'];
 		if (file_exists("users/$u")){
 
 			if (file_exists("users/$u/image.jpg")){

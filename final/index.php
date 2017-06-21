@@ -212,7 +212,7 @@ $sname = "Martian";
 $planet = "Mars"; 
 $system = "Sol"; 
 $galaxy = "Milky Way"; 
-$contact = compact(' fname', 'sname', 'planet', 'system', 'galaxy'); 
+$contact = compact('fname', 'sname', 'planet', 'system', 'galaxy'); 
 print_r( $contact);
 
 echo '<br><hr><br>';
