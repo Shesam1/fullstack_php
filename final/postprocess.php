@@ -91,10 +91,10 @@ if(isset($_POST['email'])) {
 				$x = ''; 
 				break;
 		}
-// run another if statement checking if $e has a value other than null
-// as seen above this would mean $e would be either a PNG or a JPG
+// run another if statement checking if $x has a value other than null
+// as seen above this would mean $x would be either a PNG or a JPG
 // if this is true Capture the temporary image location in variable. In addition create a variable of where you want the image to be stored, along with the file name.
-		if ($e) {
+		if ($x) {
 			$j = $_FILES['photo']['tmp_name'];
 			$i = "users/$u/image.$x"; 
 
