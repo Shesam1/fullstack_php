@@ -1,25 +1,25 @@
 <?php session_start();
 // start a session to carry variables between pages
 
-//echo ($_POST['name']);
-//echo ('<br>');
-//echo ($_POST['email']);
-//echo ('<br>');
-//echo ($_POST['user']);
-//echo ('<br>');
-//echo ($_POST['pw']);
-//echo ('<br>');
-//print_r ($_FILES['photo']);
-//echo ('<br>');
-//echo ($_FILES['photo']['name']);
-//echo ('<br>');
-//echo ($_FILES['photo']['type']);
-//echo ('<br>');
-//echo ($_FILES['photo']['tmp_name']);
-//echo ('<br>');
-//echo ($_FILES['photo']['error']);
-//echo ('<br>');
-//echo ($_FILES['photo']['size']);
+echo ($_POST['name']);
+echo ('<br>');
+echo ($_POST['email']);
+echo ('<br>');
+echo ($_POST['user']);
+echo ('<br>');
+echo ($_POST['pw']);
+echo ('<br>');
+print_r ($_FILES['photo']);
+echo ('<br>');
+echo ($_FILES['photo']['name']);
+echo ('<br>');
+echo ($_FILES['photo']['type']);
+echo ('<br>');
+echo ($_FILES['photo']['tmp_name']);
+echo ('<br>');
+echo ($_FILES['photo']['error']);
+echo ('<br>');
+echo ($_FILES['photo']['size']);
 
 //start an if statement using the ISSET method to validate that there is a value in the email field
 //$_POST is a Super Global in PHP that carried the entered data from specific form fields.
@@ -32,7 +32,7 @@ if(isset($_POST['email'])) {
 	$p = $_POST['pw'];
 //Similarly take data from the USER field and assign to 2 variables: $u will be used for the rest of this script
 // $_SESSION is a super global that can be called and edited from Page to page since we started with a session on line 3
-	$u = $_SESSION['user'] = $_POST['user'];
+	$u = $_POST['user'];
 
 /*Start the email proccessing*/
 //Now that we have the form data stored, We can do things with it. Like sending an email.
@@ -87,8 +87,8 @@ if(isset($_POST['email'])) {
 			case 'image/png': 
 				$x = 'png'; 
 				break;
-			default: 
-				$x = ''; 
+			default:
+				$x = '';
 				break;
 		}
 // run another if statement checking if $x has a value other than null

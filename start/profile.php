@@ -13,12 +13,11 @@
 	</style>
 </head>
 <body>
-<!-- php inject our Navigation using the require method -->
+
 <?php require_once "nav.php"; ?>
 
-<!-- Continue HTML -->
 <h2>Login</h2>
-<!--Echo all our super global session variables within our HTML-->
+
 <p>Your ID is: <?php ?> </p>
 <p>Your TIME is: <?php ?> </p>
 <p>Your NAME is: <?php ?> </p>

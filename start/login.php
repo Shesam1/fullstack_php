@@ -24,7 +24,7 @@
 	<input type="password" name="pw" value="" required><br>
 </label>
 <br>
-<input type="submit" name="submit" value="Submit">  
+<input type="submit" name="submit" value="Submit">
 </form>
 
 <?php ?>

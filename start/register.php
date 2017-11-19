@@ -1,4 +1,4 @@
-<?php  ?>
+<?php ?>
 <!doctype html>
 <html>
 <head>
@@ -8,10 +8,8 @@
 </head>
 <body>
 
-<!-- php inject our Navigation using the require method -->
-<?php require_once "nav.php"; ?>
+<?php ?>
 
-<!-- Continue HTML -->
 <h2>REGISTRATION</h2>
 <p><span class="error">* required field.</span></p>
 

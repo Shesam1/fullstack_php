@@ -1,4 +1,4 @@
-<?php session_start();// Starting Session ?>
+<?php ?>
 
 <html>
 <head>
@@ -6,8 +6,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
 	<style>
-		table,
-		td {
+		table, td {
 			border: 1px solid #000;
 		}
 

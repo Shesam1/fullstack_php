@@ -42,6 +42,7 @@ if(isset($_POST['submit'])){
 
 		//mamp users connection
 		$cnt = mysqli_connect("localhost", "root", "root", "DBNAME");
+
 		//xampp users connection
 		//$connection = mysqli_connect("localhost", "root", "", "DBNAME");
 

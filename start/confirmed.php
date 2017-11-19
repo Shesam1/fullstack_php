@@ -37,7 +37,7 @@
 	</style>
 </head>
 <body>
-<?php require_once "nav.php"; ?>
+<?php ?>
 <h2>Your profile:</h2>
 
 <?php ?>

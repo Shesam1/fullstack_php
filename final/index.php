@@ -408,6 +408,5 @@ echo '<br><hr><br>';
 
 print_r(array_values($GLOBALS));
 ?>
-
 </body>
 </html>

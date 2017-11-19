@@ -4,20 +4,16 @@
 .error{
 	color:#f00;
 }
-
 nav{
 	background-color: black;
 	padding: 2px;
 }
-
 nav ul{
 	list-style: none;
 }
-
 nav ul li{
 	display: inline-block;
 }
-
 nav a, nav a:visited {
 	padding: 10px;
 	border:1px lightgray solid;
