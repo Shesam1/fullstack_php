@@ -37,14 +37,20 @@
 		$result = mysqli_query($cnt,$sql);
 		//print_r($result);
 
+		while ($row = $result->fetch_assoc()) {
+			//print_r($row);
+			echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td></tr>";
+}
+
+//atlernative is phpnd is installed
 		//capture all the table data into an array
-		$table = mysqli_fetch_all($result, MYSQLI_ASSOC);
-		//print_r($table);
+//		$table = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//		print_r($table);
 
 		//loop through the array to generate table
-		foreach($table as $row) {
-			echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td></tr>";
-		}
+//		foreach($table as $row) {
+//			echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td></tr>";
+//		}
 
 		//close the connection
 		mysqli_close($cnt); // Closing Connection
