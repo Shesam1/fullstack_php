@@ -14,15 +14,20 @@
 			color:#fff;
 			padding:10px;
 		}
-		td {
+		td:first-child ~ td {
 			padding: 20px;
+		}
+		
+		img{
+			width:70px;
 		}
 	</style>
 </head>
 <body>
+	<?php require_once "nav.php"; ?>
 <table>
 	<tr>
-		<th>name</th><th>email</th>
+		<th>image</th><th>name</th><th>email</th><th>user</th><th>pw</th>
 	</tr>
 
 	<?php
@@ -37,20 +42,11 @@
 		$result = mysqli_query($cnt,$sql);
 		//print_r($result);
 
-		while ($row = $result->fetch_assoc()) {
-			//print_r($row);
-			echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td></tr>";
-}
-
-//atlernative is phpnd is installed
-		//capture all the table data into an array
-//		$table = mysqli_fetch_all($result, MYSQLI_ASSOC);
-//		print_r($table);
-
-		//loop through the array to generate table
-//		foreach($table as $row) {
-//			echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td></tr>";
-//		}
+		foreach($result as $v) {
+			//print_r($v);
+			echo '<br>';
+			echo '<tr><td><img src="'.$v['photo'].'"></td><td>'.$v['name'].'</td><td>'.$v['email'].'</td><td>'.$v['user'].'</td><td>'.$v['pw'].'</td></tr>';
+		}
 
 		//close the connection
 		mysqli_close($cnt); // Closing Connection

@@ -42,13 +42,11 @@ if(isset($_POST['submit'])){
 
 		//mamp users connection
 		$cnt = mysqli_connect("localhost", "root", "root", "DBNAME");
-
-		//xampp users connection
-		//$connection = mysqli_connect("localhost", "root", "", "DBNAME");
-
 		$qry = "select * from TBNAME where pw='$p' AND email='$e'";
 
 		$login = mysqli_query($cnt, $qry);
+
+		print_r($login);
 
 		$row = $login->num_rows;
 
@@ -56,14 +54,16 @@ if(isset($_POST['submit'])){
 
 		echo "<hr>";
 
-		if ($row == 1) {
+		if ( $login->num_rows == 1 ) {
 			$a = mysqli_fetch_assoc($login);
-			//print_r($a);
+			print_r($a);
 			//echo "<hr>$a['uid']<br>$a['time']<br>$a['name']<br>$a['email']<br>$a['pw']";
 			$_SESSION['uid'] = $a["uid"];
 			$_SESSION['time'] = $a["time"];
 			$_SESSION['name'] = $a["name"];
 			$_SESSION['email'] = $a["email"];
+			$_SESSION['user'] = $a["user"];
+			$_SESSION['photo'] = $a["photo"];
 			$_SESSION['pw'] = $a["pw"];
 			echo "<a href=\"profile.php\">proceed to profile</a>";
 		} else {

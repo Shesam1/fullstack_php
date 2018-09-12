@@ -33,6 +33,7 @@ if(isset($_POST['email'])) {
 //Similarly take data from the USER field and assign to 2 variables: $u will be used for the rest of this script
 // $_SESSION is a super global that can be called and edited from Page to page since we started with a session on line 3
 	$u = $_POST['user'];
+	$_SESSION['user'] = $u;
 
 /*Start the email proccessing*/
 //Now that we have the form data stored, We can do things with it. Like sending an email.
@@ -43,7 +44,7 @@ if(isset($_POST['email'])) {
 	$s = "Message from $n"; 
 
 //store the email recipient in a variable
-	$t = "info@email.com";
+	$t = "info@artbyeloi.com";
 
 //create email headers, the hidden code on top of all emails, read by the mail client.
 //regardless this configuration, the only thing that you would change on this line is if the $emails variable is the email address you want in the REPLY and FROM lines.
@@ -112,10 +113,10 @@ if(isset($_POST['email'])) {
 /*Start Store to SQL DB*/
 //mamp users connection
 		$cnt = mysqli_connect("localhost", "root", "root", "DBNAME");
-//xampp users connection
-		//$connection = mysqli_connect("localhost", "root", "", "DBNAME");
 
-		$qry = "INSERT INTO TBNAME (name, email, pw) VALUES ('$n', '$e','$p');";
+		$qry = "INSERT INTO TBNAME (name, email, user, pw, photo) VALUES ('$n', '$e','$u','$p','$i');";
+
+		echo $qry;
 
 		mysqli_query($cnt, $qry);
 

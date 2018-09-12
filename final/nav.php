@@ -10,6 +10,7 @@
 				echo '<li><a href="profile.php">PROFILE</a></li>';
 				echo '<li><a href="admin.php">ADMIN</a></li>';
 				echo '<li><a href="logout.php">LOGOUT</a></li>';
+				echo '<li><a href="confirmed.php">HELLO, '. $_SESSION['name'] .'</a></li>';
 			}
 		?>
 	</ul>

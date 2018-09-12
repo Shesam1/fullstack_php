@@ -47,15 +47,28 @@
 <?php
 	// call the user variable stored in our session
 	$u = $_SESSION['user'];
-	$i = $_SESSION['img'];
 
-	// call the file 'profile.txt'and treat each line as and item in an array called $profile
-	$p = file("users/$u/profile.txt");
-	
-	// assign the first two lines of profile.txt to two variables, $name and $email
-	// in addition use the trim method to remove any whitespace from these's lines
-	$n = trim($p[0]);
-	$e = trim($p[1]);
+	$cnt = mysqli_connect("localhost", "root", "root", "DBNAME");
+	$qry = "select * from TBNAME where user='$u'";
+
+		$login = mysqli_query($cnt, $qry);
+
+		$row = $login->num_rows;
+
+		if ( $login->num_rows == 1 ) {
+			$a = mysqli_fetch_assoc($login);
+			$n = $a["name"];
+			$e = $a["email"];
+			$u = $a["user"];
+			$i = $a["photo"];
+			
+			echo "<a href=\"login.php\">login to your account</a>";
+		} else {
+			echo "try again";
+		}
+		// Closing Connection
+		mysqli_close($cnt);
+
 ?>
 <div class="profilecontainer">
 	<!-- Call our PHP variables inside of our HTML-->
@@ -70,6 +83,11 @@
 		<span class="left">Email:&nbsp;</span>
 		<!-- Call the 'email' variable to display in this span -->
 		<span class="right"><?php echo $e ?></span>
+	</h4>
+	<h4>
+		<span class="left">User:&nbsp;</span>
+		<!-- Call the 'email' variable to display in this span -->
+		<span class="right"><?php echo $u ?></span>
 	</h4>
 </div>
 </body>
